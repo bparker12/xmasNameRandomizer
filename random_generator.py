@@ -1,9 +1,10 @@
 import random
-from email import buildEmail
+from email_build import buildEmail
+import time
 
 giver = [
     {"name": "Casie", "pairing": "a", "email": "superdummytest8679@gmail.com"},
-    {"name": "Kyle", "pairing": "a", "email": "superdummytest8679@gmail.com"},
+    {"name": "Kyle", "pairing": "a", "email": "stuffguy12@gmail.com"},
     {"name": "Ben", "pairing": "b", "email": "superdummytest8679@gmail.com"},
     {"name": "Meredith", "pairing": "b", "email": "superdummytest8679@gmail.com"},
     {"name": "Tyler", "pairing": "c", "email": "superdummytest8679@gmail.com"},
@@ -26,10 +27,10 @@ def randomize_pairs(list1, list2):
             list2.remove(name)
         chosenPerson = pop_random(list2)
         print("chosenPerson", chosenPerson['name'])
-        buildEmail(name, chosenPerson['name'])
         #send email with "name" as the recepient of email and the chosenPerson as the message body
+        buildEmail(name['name'], name['email'], chosenPerson['name'])
         for name in pairingMatch:
             list2.append(name)
-
+        time.sleep(2)
 
 randomize_pairs(giver, receiver)
