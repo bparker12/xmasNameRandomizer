@@ -11,7 +11,7 @@ year = 2020
  
 service = Create_Service(client_secret_file, api_name, api_verson, scopes)
 
-# this email is the key for the gift exchange.  takes the dictionary and changes into a list of strings, then joins the strings
+# this email is the key for the gift exchange.  takes the dictionary and changes into a list of strings, then joins the strings for the message
 def buildKeyEmail(lst, email):
     msg = []
     for person_id, person_info in lst.items():

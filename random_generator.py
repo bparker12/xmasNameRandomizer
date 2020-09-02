@@ -31,7 +31,6 @@ def randomize_pairs(list1, list2):
         for person in pairingMatch:
             list2.append(person)
         pairs[counter+1] = {"giver": name['name'], "email": name['email'], "receiver": chosenPerson['name'],}
-    print(pairs) 
 
 # loops over pairs and sends email based on info provided
 def sendEmail(match):
