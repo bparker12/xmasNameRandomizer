@@ -2,14 +2,9 @@ import random
 import time
 from email_build import buildEmail
 from confirmation_email import buildKeyEmail
+from lsts import giver_list, key_master
 
-giver = [
-    {"name": "Casie", "pairing": "a", "email": "casie.parker@gmail.com"},
-    {"name": "Ben", "pairing": "b", "email": "stuffguy12@gmail.com"},
-    {"name": "Tyler", "pairing": "c", "email": "tyler.parker80@yahoo.com"},
-    {"name": "Kyle", "pairing": "a", "email": "kyledavidzim@yahoo.com"},
-    {"name": "Meredith", "pairing": "b", "email": "mfordsing@yahoo.com"},
-    {"name": "Alyssa", "pairing": "c", "email": "abarrett7@comcast.net"}]
+giver = giver_list
 
 receiver = [name for name in giver]
 
@@ -43,7 +38,7 @@ while not working:
     try:
         randomize_pairs(giver, receiver)
         sendEmail(pairs)
-        buildKeyEmail(pairs, 'meeneyore@gmail.com')
+        buildKeyEmail(pairs, key_master)
         working = True
     except ValueError as e:
     # the receiver reset is needed, otherwise the randomize_pairs() function doesn't work.  All dictionaries are removed after function is run
