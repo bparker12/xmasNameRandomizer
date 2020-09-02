@@ -9,7 +9,7 @@ giver = [
     {"name": "Tyler", "pairing": "c", "email": "tyler.parker80@yahoo.com"},
     {"name": "Kyle", "pairing": "a", "email": "kyledavidzim@yahoo.com"},
     {"name": "Meredith", "pairing": "b", "email": "mfordsing@yahoo.com"},
-    {"name": "Alyssa", "pairing": "c", "email": "abarrett7@comcast.com"}]
+    {"name": "Alyssa", "pairing": "c", "email": "abarrett7@comcast.net"}]
 
 receiver = [name for name in giver]
 
