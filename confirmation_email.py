@@ -11,13 +11,16 @@ year = 2020
  
 service = Create_Service(client_secret_file, api_name, api_verson, scopes)
 
-# this builds the email to send out based on info provided. The html is built in the HTML file
-def buildEmail(giver, email, receiver): 
-    emailMsg = open("index.html").read().format(giver=giver, year=year, receiver=receiver)
+# this email is the key for the gift exchange.  takes the dictionary and changes into a list of strings, then joins the strings
+def buildKeyEmail(lst, email):
+    msg = []
+    for person_id, person_info in lst.items():
+        msg.append(person_info['giver'] + ' is getting a gift for ' + person_info['receiver'] + '\n')
+    emailMsg = ' '.join(msg)
     mimeMessage = MIMEMultipart("alternative")
     mimeMessage['to'] = email
-    mimeMessage['subject'] = 'Christmas {} - Parker gift exchange'.format(year)
-    mimeMessage.attach(MIMEText(emailMsg, 'html'))
+    mimeMessage['subject'] = 'Christmas {} - Parker gift exchange Key'.format(year)
+    mimeMessage.attach(MIMEText(emailMsg, 'plain'))
     raw_string = base64.urlsafe_b64encode(mimeMessage.as_bytes()).decode()
  
     return service.users().messages().send(userId='me', body={'raw': raw_string}).execute()
